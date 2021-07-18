@@ -1,10 +1,16 @@
-import React from 'react'
-import { StyleSheet, View, TextInput } from 'react-native'
+import * as React from 'react'
+import { StyleSheet, View, TextInput, TouchableWithoutFeedback } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
 import NewText from '../components/NewText'
 
 export default function Login() {
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
+
     return (
         <View>
             <View style={styles.logo}></View>
@@ -26,7 +32,11 @@ export default function Login() {
             </InputContainer>
             <InputContainer title="Password" >
                 <View style={styles.inputIconLeft}>
-                    <Ionicons name="lock-closed-outline" size={24} color="#0d0f35" />
+                    <Ionicons
+                        name="lock-closed-outline"
+                        size={24}
+                        color="#0d0f35"
+                    />
                 </View>
                 <TextInput
                     style={styles.input}
@@ -35,12 +45,19 @@ export default function Login() {
                     autoCapitalize="none"
                     autoCompleteType="password"
                     textContentType="password"
-                    secureTextEntry={true}
+                    secureTextEntry={showPassword ? false : true}
                     autoCorrect={false}
                 />
-                <View style={styles.inputIconRight}>
-                    <Ionicons name="eye-outline" size={24} color="#0d0f35" />
-                </View>
+                <TouchableWithoutFeedback
+                    style={styles.inputIconRight}
+                    onPress={toggleShowPassword}
+                >
+                    <Ionicons
+                        name={showPassword ? "eye-off-outline" : "eye-outline"}
+                        size={24}
+                        color="#0d0f35"
+                    />
+                </TouchableWithoutFeedback>
             </InputContainer>
         </View>
     )

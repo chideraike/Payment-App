@@ -21,6 +21,7 @@ function HomeTabs() {
                 // keyboardHidesTabBar: true,
                 style: {
                     backgroundColor: "#e9f0fb",
+                    borderTopWidth: 0
                 },
             }}
         >

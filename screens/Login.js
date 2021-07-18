@@ -3,6 +3,7 @@ import { StyleSheet, View, TextInput, TouchableWithoutFeedback } from 'react-nat
 import { Ionicons } from '@expo/vector-icons';
 
 import NewText from '../components/NewText'
+import NewButton from '../components/NewButton'
 
 export default function Login() {
     const [showPassword, setShowPassword] = React.useState(false);
@@ -59,6 +60,7 @@ export default function Login() {
                     />
                 </TouchableWithoutFeedback>
             </InputContainer>
+            <NewButton title="Login" />
         </View>
     )
 }

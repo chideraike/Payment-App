@@ -8,91 +8,91 @@ import { Ionicons, FontAwesome, Entypo } from '@expo/vector-icons';
 import Home from './screens/Home'
 import Transactions from './screens/Transactions'
 
-const App = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-function HomeStack() {
+function HomeTabs() {
     return (
-        <App.Navigator
+        <Tab.Navigator
             initialRouteName="Home"
+            tabBarOptions={{
+                activeTintColor: "#424d8c",
+                inactiveTintColor: "#808080",
+                showLabel: false,
+                // keyboardHidesTabBar: true,
+                style: {
+                    backgroundColor: "#e9f0fb",
+                },
+            }}
         >
-            <App.Screen
+            <Tab.Screen
                 name="Home"
                 component={Home}
                 options={{
-                    headerShown: false
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="home" color={color} size={30} />
+                    ),
                 }}
             />
-            <App.Screen
-                name="Transactions"
-                component={Transactions}
+            <Tab.Screen
+                name="Card"
+                component={Home}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="card-outline" color={color} size={30} />
+                    ),
+                }}
             />
-        </App.Navigator>
+            <Tab.Screen
+                name="Add"
+                component={Home}
+                options={{
+                    tabBarIcon: () => (
+                        <AddIcon />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Dollar"
+                component={Home}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <FontAwesome name="dollar" color={color} size={30} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Profile"
+                component={Home}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="person-circle-outline" color={color} size={30} />
+                    ),
+                }}
+            />
+        </Tab.Navigator>
     )
 }
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function MainApp() {
     return (
         <NavigationContainer>
-            <Tab.Navigator
+            <Stack.Navigator
                 initialRouteName="Home"
-                tabBarOptions={{
-                    activeTintColor: "#424d8c",
-                    inactiveTintColor: "#808080",
-                    showLabel: false,
-                    // keyboardHidesTabBar: true,
-                    style: {
-                        backgroundColor: "#e9f0fb",
-                    },
-                }}
             >
-                <Tab.Screen
+                <Stack.Screen
                     name="Home"
-                    component={HomeStack}
+                    component={HomeTabs}
                     options={{
-                        tabBarIcon: ({ color }) => (
-                            <Ionicons name="home" color={color} size={30} />
-                        ),
+                        headerShown: false
                     }}
                 />
-                <Tab.Screen
-                    name="Card"
-                    component={HomeStack}
-                    options={{
-                        tabBarIcon: ({ color }) => (
-                            <Ionicons name="card-outline" color={color} size={30} />
-                        ),
-                    }}
+                <Stack.Screen
+                    name="Transactions"
+                    component={Transactions}
                 />
-                <Tab.Screen
-                    name="Add"
-                    component={HomeStack}
-                    options={{
-                        tabBarIcon: () => (
-                            <AddIcon />
-                        ),
-                    }}
-                />
-                <Tab.Screen
-                    name="Dollar"
-                    component={HomeStack}
-                    options={{
-                        tabBarIcon: ({ color }) => (
-                            <FontAwesome name="dollar" color={color} size={30} />
-                        ),
-                    }}
-                />
-                <Tab.Screen
-                    name="Profile"
-                    component={HomeStack}
-                    options={{
-                        tabBarIcon: ({ color }) => (
-                            <Ionicons name="person-circle-outline" color={color} size={30} />
-                        ),
-                    }}
-                />
-            </Tab.Navigator>
+            </Stack.Navigator>
         </NavigationContainer>
     )
 }

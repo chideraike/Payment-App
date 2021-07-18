@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-export default NewText = ({ h1, h2, h3, h4, h5, p, bold, light, grey, dark, primary, children }) => {
+export default NewText = ({ h1, h2, h3, h4, h5, p, bold, white, light, grey, dark, primary, children }) => {
     return (
         <Text
             style={[
@@ -13,6 +13,7 @@ export default NewText = ({ h1, h2, h3, h4, h5, p, bold, light, grey, dark, prim
                 h5 && { fontSize: 16 },
                 p && { fontSize: 12 },
                 bold && { fontFamily: 'Poppins_700Bold' },
+                white && { color: '#fff' },
                 light && { color: '#d3d3d3' },
                 grey && { color: '#808080' },
                 dark && { color: '#0d0f35' },

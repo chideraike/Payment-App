@@ -8,9 +8,12 @@ import {
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
 
+import MainApp from './MainApp'
 import Login from './screens/Login';
 
 export default function App() {
+  const [loggedIn, setLoggedIn] = React.useState(false);
+
   let [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_700Bold,
@@ -21,16 +24,20 @@ export default function App() {
   } else {
     return (
       <DismissKeyboard>
-        <ScrollView
-          style={styles.container}
-          bounces={false}
-          showsVerticalScrollIndicator={false}
-        >
-          <SafeAreaView>
-            <Login />
-            <StatusBar style="auto" />
-          </SafeAreaView>
-        </ScrollView>
+        {loggedIn ? <MainApp /> : (
+          <ScrollView
+            style={styles.container}
+            bounces={false}
+            showsVerticalScrollIndicator={false}
+          >
+            <SafeAreaView>
+              <StatusBar style="auto" />
+              <Login
+                onClick={() => setLoggedIn(true)}
+              />
+            </SafeAreaView>
+          </ScrollView>
+        )}
       </DismissKeyboard>
     );
   }

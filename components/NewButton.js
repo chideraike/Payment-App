@@ -3,9 +3,12 @@ import { StyleSheet, TouchableOpacity } from 'react-native'
 
 import NewText from './NewText'
 
-export default function NewButton({ title }) {
+export default function NewButton({ title, onClick }) {
     return (
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={onClick}
+        >
             <NewText bold white h4>
                 {title}
             </NewText>

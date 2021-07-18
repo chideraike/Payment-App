@@ -11,7 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 import NewText from '../components/NewText'
 import NewButton from '../components/NewButton'
 
-export default function Login() {
+export default function Login({ onClick }) {
     const [showPassword, setShowPassword] = React.useState(false);
 
     const toggleShowPassword = () => {
@@ -66,7 +66,10 @@ export default function Login() {
                     />
                 </TouchableWithoutFeedback>
             </InputContainer>
-            <NewButton title="Login" />
+            <NewButton
+                title="Login"
+                onClick={onClick}
+            />
             <View style={styles.optionsContainer}>
                 <TouchableOpacity>
                     <NewText grey>Signup</NewText>

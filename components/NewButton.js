@@ -6,7 +6,7 @@ import NewText from './NewText'
 export default function NewButton({ title }) {
     return (
         <TouchableOpacity style={styles.buttonContainer}>
-            <NewText bold style={{ color: '#fff' }}>
+            <NewText bold white h4>
                 {title}
             </NewText>
         </TouchableOpacity>
@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     buttonContainer: {
         backgroundColor: '#424d8c',
         margin: 20,
+        marginTop: 15,
         padding: 20,
         borderRadius: 30,
+        alignItems: 'center',
     },
 })

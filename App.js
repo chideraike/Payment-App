@@ -21,7 +21,11 @@ export default function App() {
   } else {
     return (
       <DismissKeyboard>
-        <ScrollView style={styles.container}>
+        <ScrollView
+          style={styles.container}
+          bounces={false}
+          showsVerticalScrollIndicator={false}
+        >
           <SafeAreaView>
             <Login />
             <StatusBar style="auto" />

@@ -1,5 +1,11 @@
 import * as React from 'react'
-import { StyleSheet, View, TextInput, TouchableWithoutFeedback } from 'react-native'
+import {
+    StyleSheet,
+    View,
+    TextInput,
+    TouchableWithoutFeedback,
+    TouchableOpacity
+} from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
 import NewText from '../components/NewText'
@@ -61,6 +67,14 @@ export default function Login() {
                 </TouchableWithoutFeedback>
             </InputContainer>
             <NewButton title="Login" />
+            <View style={styles.optionsContainer}>
+                <TouchableOpacity>
+                    <NewText grey>Signup</NewText>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <NewText grey>Forgot Password?</NewText>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -83,12 +97,14 @@ const styles = StyleSheet.create({
         borderRadius: 65,
         backgroundColor: '#424d8c',
         alignSelf: 'center',
-        marginTop: 100,
-        marginBottom: 100,
+        marginTop: 80,
+        marginBottom: 80,
     },
     inputContainer: {
         backgroundColor: '#fff',
         margin: 20,
+        marginTop: 15,
+        marginBottom: 15,
         padding: 20,
         borderRadius: 30,
         shadowColor: "#b0c6e1",
@@ -123,5 +139,11 @@ const styles = StyleSheet.create({
     inputIconRight: {
         flex: 1,
         flexDirection: 'row-reverse',
+    },
+    optionsContainer: {
+        flexDirection: 'row',
+        marginLeft: 20,
+        marginRight: 20,
+        justifyContent: 'space-between'
     },
 })

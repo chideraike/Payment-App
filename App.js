@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
@@ -20,13 +20,23 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <SafeAreaView style={styles.container}>
-        <Login />
-        <StatusBar style="auto" />
-      </SafeAreaView>
+      <DismissKeyboard>
+        <ScrollView style={styles.container}>
+          <SafeAreaView>
+            <Login />
+            <StatusBar style="auto" />
+          </SafeAreaView>
+        </ScrollView>
+      </DismissKeyboard>
     );
   }
 }
+
+const DismissKeyboard = ({ children }) => (
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
 
 const styles = StyleSheet.create({
   container: {

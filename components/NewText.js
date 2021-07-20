@@ -14,7 +14,7 @@ export default NewText = ({ h1, h2, h3, h4, h5, p, bold, white, light, grey, dar
                 p && { fontSize: 12 },
                 bold && { fontFamily: 'Poppins_700Bold' },
                 white && { color: '#fff' },
-                light && { color: '#d3d3d3' },
+                light && { color: '#a9a9a9' },
                 grey && { color: '#808080' },
                 dark && { color: '#0d0f35' },
                 primary && { color: '#424d8c' },

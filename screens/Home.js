@@ -5,11 +5,11 @@ import {
     View,
     SafeAreaView,
     TouchableOpacity,
-    ScrollView,
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
 import NewText from '../components/NewText'
+import History from '../components/History'
 
 export default function Home({ navigation }) {
     return (
@@ -76,70 +76,6 @@ const Stat = ({ name, children, onPress }) => (
     </TouchableOpacity>
 )
 
-const History = () => {
-    return (
-        <ScrollView style={styles.historyContainer}>
-            <HistoryItem
-                type='sent'
-                amount={150}
-                details='Payment to Clients'
-            />
-            <HistoryItem
-                type='receive'
-                amount={250}
-                details='Salary from company'
-            />
-            <HistoryItem
-                type='loan'
-                amount={400}
-                details='for the car'
-            />
-            <HistoryItem
-                type='sent'
-                amount={100}
-                details='money to babe'
-            />
-        </ScrollView>
-    )
-}
-
-const HistoryItem = ({ type, amount, details }) => {
-    let name, title, message
-
-    switch (type) {
-        case 'sent':
-            name = 'arrow-up-outline'
-            title = 'Sent'
-            message = 'Sending '
-            break
-        case 'receive':
-            name = 'arrow-down-outline'
-            title = 'Receive'
-            message = 'Receiving '
-            break
-        case 'loan':
-            name = 'cash-outline'
-            title = 'Loan'
-            message = 'Loan '
-            break
-    }
-
-    return (
-        <View style={styles.historyItemContainer}>
-            <View style={styles.historyItemIcon}>
-                <Ionicons name={name} size={30} color="#0d0f35" />
-            </View>
-            <View style={{ flex: 7 }}>
-                <NewText bold dark>{title}</NewText>
-                <NewText light p>{message}{details}</NewText>
-            </View>
-            <View style={{ flex: 1 }}>
-                <NewText bold dark p>${amount}</NewText>
-            </View>
-        </View>
-    )
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -196,32 +132,5 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 3,
         top: 4,
-    },
-    historyContainer: {},
-    historyItemContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-        margin: 20,
-        marginTop: 10,
-        marginBottom: 10,
-        padding: 20,
-        borderRadius: 30,
-        shadowColor: "#b0c6e1",
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.34,
-        shadowRadius: 6.27,
-        elevation: 10,
-    },
-    historyItemIcon: {
-        flex: 1,
-        padding: 10,
-        borderRadius: 20,
-        marginRight: 15,
-        backgroundColor: '#b4c5e5',
-        alignItems: 'center',
     },
 })

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -81,6 +81,37 @@ export default function MainApp() {
         <NavigationContainer>
             <Stack.Navigator
                 initialRouteName="Home"
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: '#e9f0fb',
+                    },
+                    headerTintColor: '#0d0f35',
+                    headerBackTitleVisible: false,
+                    headerLeft: (props) => (
+                        <TouchableOpacity {...props}>
+                            <Ionicons
+                                name="chevron-back-outline"
+                                color="#0d0f35"
+                                size={30}
+                            />
+                        </TouchableOpacity>
+                    ),
+                    headerLeftContainerStyle: {
+                        marginLeft: 20
+                    },
+                    headerRight: () => (
+                        <TouchableOpacity>
+                            <Ionicons
+                                name="search-outline"
+                                color="#0d0f35"
+                                size={30}
+                            />
+                        </TouchableOpacity>
+                    ),
+                    headerRightContainerStyle: {
+                        marginRight: 20
+                    },
+                }}
             >
                 <Stack.Screen
                     name="Home"
@@ -92,6 +123,9 @@ export default function MainApp() {
                 <Stack.Screen
                     name="Transactions"
                     component={Transactions}
+                    options={{
+                        headerTitle: null
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

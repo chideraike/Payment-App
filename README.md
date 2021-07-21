@@ -5,7 +5,7 @@ Design inspiration gotten from [here](https://dribbble.com/shots/14210557-Financ
 ## Installation
 This app was built using [React Native](https://reactnative.dev/) with [Expo](https://expo.io). In other to run it install **Expo Go** from either the App Store or Play Store.  
 
- -  Run the app [here]() directly from the Expo app
+ -  Run the app [here](https://exp.host/@chideraike/payment-app) directly from the Expo app
 
 Then follow these steps to run the app locally;
 

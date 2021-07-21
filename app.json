@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "payment-app",
+    "name": "Payment App",
     "slug": "payment-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Payment App design built with React Native & Expo",
+    "githubUrl": "https://github.com/chideraike/Payment-App"
   }
 }

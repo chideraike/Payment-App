@@ -70,6 +70,23 @@ export default function History() {
         />
     )
 
+    const FooterComponent = () => (
+        <View style={styles.footerComponent}>
+            <View
+                style={{
+                    height: 3,
+                    width: 30,
+                    borderRadius: 10,
+                    backgroundColor: '#a9a9a9',
+                    margin: 10
+                }}
+            />
+            <View style={styles.footerMessage}>
+                <NewText h5 light>No older transaction</NewText>
+            </View>
+        </View>
+    )
+
     return (
         <FlatList
             data={DATA}
@@ -85,6 +102,7 @@ export default function History() {
                     tintColor="#424d8c"
                 />
             }
+            ListFooterComponent={<FooterComponent />}
         />
     )
 }
@@ -153,5 +171,11 @@ const styles = StyleSheet.create({
         marginRight: 15,
         backgroundColor: '#b4c5e5',
         alignItems: 'center',
+    },
+    footerComponent: {
+        alignItems: 'center',
+    },
+    footerMessage: {
+        marginBottom: 20,
     },
 })

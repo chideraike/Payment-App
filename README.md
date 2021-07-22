@@ -21,3 +21,4 @@ Features currently on the app;
 - [x]  Screens
 - [x]  [Navigation](https://reactnavigation.org/docs/getting-started)
 - [x]  Pull to refresh
+- [x]  Sorting transactions

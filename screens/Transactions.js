@@ -5,6 +5,7 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import NewText from '../components/NewText'
 import NewButton from '../components/NewButton'
 import Tags from '../components/Tags'
+import TransactionsImage from '../components/TransactionsImage'
 
 export default function Transactions() {
     return (
@@ -27,6 +28,7 @@ export default function Transactions() {
                     <NewText primary bold h2>Today</NewText>
                 </View>
                 <Receipts />
+                <TransactionsImage />
                 <NewButton title="See Details" />
             </View>
         </View>

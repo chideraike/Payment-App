@@ -2,6 +2,8 @@
 
 Design inspiration gotten from [here](https://dribbble.com/shots/14210557-Finance-Mobile-Application-UX-UI-Design).
 
+https://user-images.githubusercontent.com/42821245/126712049-2e381f93-8281-48d7-83d2-1a1edf1db191.mp4
+
 ## Installation
 This app was built using [React Native](https://reactnative.dev/) with [Expo](https://expo.io). In other to run it install **Expo Go** from either the App Store or Play Store.  
 

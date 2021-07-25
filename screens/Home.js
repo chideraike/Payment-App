@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react'
+import React, { useState } from 'react'
 import {
     StyleSheet,
     View,
@@ -12,6 +12,12 @@ import NewText from '../components/NewText'
 import History from '../components/History'
 
 export default function Home({ navigation }) {
+    const [newNotification, setNewNotification] = useState(true)
+
+    const handleNotifications = () => {
+        setNewNotification(!newNotification)
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" />
@@ -27,10 +33,13 @@ export default function Home({ navigation }) {
             >
                 <View style={styles.overviewContainer}>
                     <NewText primary bold h2>Overview</NewText>
-                    <View style={styles.notificationIcon}>
+                    <TouchableOpacity
+                        style={styles.notificationIcon}
+                        onPress={handleNotifications}
+                    >
                         <Ionicons name="notifications-outline" size={24} color="#0d0f35" />
-                        <View style={styles.notificationIconDot} />
-                    </View>
+                        {newNotification ? <View style={styles.notificationIconDot} /> : null}
+                    </TouchableOpacity>
                 </View>
                 <View>
                     <NewText dark>Sept 13, 2020</NewText>
